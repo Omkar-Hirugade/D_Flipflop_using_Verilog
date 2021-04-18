@@ -1,0 +1,68 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   05:24:01 04/18/2021
+// Design Name:   Dff
+// Module Name:   /home/ise/Dff/Dff_TB.v
+// Project Name:  Dff
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: Dff
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module Dff_TB;
+
+	// Inputs
+	reg clk;
+	reg reset;
+	reg d;
+
+	// Outputs
+	wire q;
+	wire qb;
+
+	// Instantiate the Unit Under Test (UUT)
+	Dff uut (
+		.clk(clk), 
+		.reset(reset), 
+		.d(d), 
+		.q(q), 
+		.qb(qb)
+	);
+
+	initial begin
+		// Initialize Inputs
+		clk = 0;
+		reset = 0;
+		d = 0;
+		#10;
+		d=1;
+		#10;
+		d=0;
+		#10;
+		// Wait 100 ns for global reset to finish
+		#100;
+        
+		// Add stimulus here
+
+	end
+	initial begin
+		forever begin
+		#10 clk=~clk;
+		end
+		end
+      
+endmodule
+
